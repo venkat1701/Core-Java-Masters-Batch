@@ -16,21 +16,21 @@ This is the Core Java Master's Batch and all the materials can be fetched from h
 
 ---
 
-    ### Course Duration and Timings: -
-    1. The course is tentative. Howsoever, the first syllabus planned must be covered in 2 months to max.
-    2. There would be 2 or 3 classes weekly, with a Doubt Session (+1) on Saturday Evenings.
-    3. General class Timings depend on the Poll conducted and would be final.
+   ### Course Duration and Timings: -
+   1. The course is tentative. Howsoever, the first syllabus planned must be covered in 2 months to max.
+   2. There would be 2 or 3 classes weekly, with a Doubt Session (+1) on Saturday Evenings.
+   3. General class Timings depend on the Poll conducted and would be final.
 
-    ---
+   ---
 
-    ### Contact Details: -
-    I am always free for help. Contact me via Discord ( Venky#9072 ).
+   ### Contact Details: -
+   I am always free for help. Contact me via Discord ( Venky#9072 ).
 
-    ---
+   ---
 
-    ### Books to be Referred:-
-    1. Core Java: An Integrated Approach by R.Nageshwara Rao
-    2. Java - The Complete Reference ( Preferred only after you read Java 8 Programming Black Book ).
+   ### Books to be Referred:-
+   1. Core Java: An Integrated Approach by R.Nageshwara Rao
+   2. Java - The Complete Reference ( Preferred only after you read Java 8 Programming Black Book ).
 ---
 
 General Updating time of this repository 2 to 3 days.

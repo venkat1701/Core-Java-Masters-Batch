@@ -2,7 +2,6 @@
 Get all the Details and Notes from here. 
 
 ## Technical Details
----
 
 This is the Core Java Master's Batch and all the materials can be fetched from here. Materials are requested not to be sent to anyone. This the very first session which is absolutely free, but the efforts are still there by both Attendees and me.
 
@@ -22,7 +21,6 @@ This is the Core Java Master's Batch and all the materials can be fetched from h
 
 ---
 ### Contact Details: -
----
-I am always free for help. Contact me via Discord ( Venky#9072 ) or at this [Email](thejeastdev@gmail.com).
+I am always free for help. Contact me via Discord ( Venky#9072 ) or at this ![EMAIL](mailto:thejeastdev@gmail.com)
 
 General Updating time of this repository 2 to 3 days.

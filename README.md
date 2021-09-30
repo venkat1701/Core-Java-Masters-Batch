@@ -26,4 +26,12 @@ This is the Core Java Master's Batch and all the materials can be fetched from h
 ### Contact Details: -
 I am always free for help. Contact me via Discord ( Venky#9072 ).
 
+---
+
+### Books to be Referred:-
+1. Core Java: An Integrated Approach by R.Nageshwara Rao
+2. Java - The Complete Reference ( Preferred only after you read Java 8 Programming Black Book ).
+
+---
+
 General Updating time of this repository 2 to 3 days.

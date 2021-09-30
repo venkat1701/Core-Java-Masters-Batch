@@ -1,4 +1,4 @@
-# Core-Java-Masters-Batch
+# Project Java
 Get all the Details and Notes from here. 
 
 ## Technical Details

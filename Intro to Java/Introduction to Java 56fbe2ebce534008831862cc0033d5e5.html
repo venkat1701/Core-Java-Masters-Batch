@@ -1,0 +1,693 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Introduction to Java</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ff0aa879-0f9b-433f-ac05-646188fa4ad1" class="page sans"><header><img class="page-cover-image" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/image.png" style="object-position:center 34.209999999999994%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/java-icon-images-15.jpg"/></div><h1 class="page-title">Introduction to Java</h1></header><div class="page-body"><p id="464f9294-6b56-4c27-8235-75cca57a2fdb" class="">Java was invented by James Gosling and his team and released in 1995 for public use. It was invented as a result of Project Green for Consumer Electronics. </p><p id="66bbfb5b-fee4-4031-b8ad-c123b9741e62" class="">Note Guys: This PDF has analytics included. So I would get to know whether you have read any particular line or not...Yeh Jaadu ka Kamaal hai...</p><h2 id="367923dc-82de-47e2-90fc-2873951d8712" class="">Features of Java.</h2><p id="d509de84-b6ab-457f-8478-e98f1f9e1efe" class="">
+</p><p id="28304f32-5c77-4b57-96a2-02e1669626d7" class=""><strong>This language brings with it immense popularity due to its Buzzwords or Features.</strong></p><p id="aa598390-d8d2-42b2-a5e0-c2406c01e5f9" class="">
+</p><ol type="1" id="cc3745f9-208c-4ee5-8f2b-05629c609b5d" class="numbered-list" start="1"><li><strong>It&#x27;s Damn Simple</strong> : For a person who has been coding in C and C++, the syntax of Java is 70% similar. So, if you are seeing these notes and you belong to C or C++ Coder Family, then Java is just a cup of coffee for you.</li></ol><ol type="1" id="bceeb69e-9af7-42a2-bb31-ef6a02da9e47" class="numbered-list" start="2"><li><strong>Object Oriented</strong> : All Java Programs are well structured around Objects. Objects are nothing but real world entities, i.e. things that exist in real world. Each object has its own properties and behavior. You are also an object, this means that you have some properties like your <em>skin-tone, hair-length, etc. </em>And talking about your behaviors, like on Sundays, you be like &quot;Netflix and Chill&quot;.</li></ol><ol type="1" id="4ee6f9fa-3fdc-4585-835c-8eb235db63f3" class="numbered-list" start="3"><li><strong>Robust</strong> : Java checks for any kind of errors at compile time and exceptions at runtime. Java has a great inbuilt exception handling system which detects almost every Runtime Exception and saves the program from crashing like in C and C++.</li></ol><ol type="1" id="b5bf147f-2b41-4562-89c1-828470376023" class="numbered-list" start="4"><li><strong>Secure</strong> : Java programs run on a sandbox namely JVM. JVM provides a restricted environment to run programs and restrict their access to Computer RAM and Hard Disks.</li></ol><ol type="1" id="d5c7af47-0827-4d75-a410-097dc2814e10" class="numbered-list" start="5"><li><strong>Scalable</strong> : Java Applications are scalable around multiple systems and can be used to make a wide scaled project.</li></ol><ol type="1" id="a0e54ba4-86cb-443d-93aa-6f5130ca5964" class="numbered-list" start="6"><li><strong>Multithreaded</strong> : Java programs can run concurrently and simultaneously on multiple threads. This makes a Java Program multithreaded. The ability of a program to run on multiple threads is called Multithreading. Java provides a huge package for multithreading features and concurrency.</li></ol><ol type="1" id="91fe9548-664a-4acb-81e9-935e5bc2c937" class="numbered-list" start="7"><li><strong>Write once, run anywhere</strong> : Java Programs are both compiled and interpreted. The Java Compiler compiles and converts the source code to byte code. This bytecode is a highly optimized set of instructions which is passed to Byte Loader Subsystem in the Java Virtual Machine to be interpreted and converted to machine code.</li></ol><p id="69f52525-9aa1-4685-8983-6caef4f9e254" class="">
+</p><p id="f6177174-6aa8-447f-ba7d-1bc2a9cbb4c9" class="">These features bring Java to become one of the most popular language in the market now.</p><p id="a6e19eb0-b19e-47c6-b06e-89b8c46feb89" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7355454f-914b-4fd5-81ff-e6941dd8b28e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Interview Question.
+1. Why pointers were eliminated from Java?
+2. What adds more to the Robustness of Java?</div></figure><p id="b928e5ab-9f4c-4808-a1b8-fdcc127afda2" class="">
+</p><h3 id="6a72c188-a14f-4e92-9756-d707621cc1bd" class="">Getting started with Installation of JDK 16.0.2 and setting up Environmental Variables.</h3><p id="486b7dc3-6ba3-497e-9cb0-24014a24f6df" class="">So as to work with Java on your Local System, you need to have some kind of toolkit which would aid you in writing programs. </p><p id="24cee9e9-fc28-4f11-8e8d-d276de1808d1" class="">Step 1 : Open Browser and type : - </p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e100356c-2c82-47b1-99f5-3ace96991405"><div style="font-size:1.5em"><span class="icon">🛠</span></div><div style="width:100%"><a href="https://www.oracle.com/java/technologies/downloads/#java16-windows">https://www.oracle.com/java/technologies/downloads/#java16-windows</a></div></figure><p id="e429dd17-d371-4d1f-984a-718067eb3d54" class="">Step 2 : Click on the <em>jdk-16.0.2_windows-x64_bin.exe</em> and install it.</p><p id="5029326a-095d-4c8b-8f31-ce31bb0bbb08" class="">Step 3 : After download, run the .exe application. Press &quot;YES&quot; on a pop-up and keep clicking &quot;Next&quot; to install it successfully. </p><p id="f057dcc2-4ad4-419e-86eb-4b101d84dec3" class=""><strong>Do not change the installation location of JDK</strong></p><p id="7d7d06df-6cd4-4ce2-915f-1474091cb248" class="">Now that we have successfully installed JDK 16.0.2, head over to &quot;Program Files/Java&quot; and check if jdk-16.0.2 is present or not. If it is not present, then it is sure that you missed out a process or overlooked something.</p><h3 id="fc9b816c-95f2-4268-9947-0793fbb9e95f" class="">Post-process after JDK Installation.</h3><p id="1f145cfa-5d82-45d1-926d-569dc0cf8638" class="">Step 4 : Click on This PC💻 and open it.</p><p id="428a840f-fa4d-4bda-8889-3ec986272aa9" class="">Step 5 : Right Click anywhere on the window and click <em>Properties</em> . </p><p id="ff06253a-7c86-48db-93de-9d43f8659165" class="">Step 6 : Look up for <em>Advanced System Settings</em> and then click on Environmental variables.</p><div id="61ed2f9a-a997-479a-860d-59adf441f82b" class="column-list"><div id="dfb0999e-373a-4ebc-b0db-ccc7d2ba517a" style="width:50%" class="column"><figure id="56fbe2eb-ce53-4008-8318-62cc0033d5e5" class="image"><a href="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled.png"><img style="width:192px" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled.png"/></a></figure></div><div id="27f24340-b424-46ef-8dc2-61ab6d2bfc6e" style="width:50%" class="column"><figure id="d3bcc85f-c5de-40bf-9a53-6295a359cc37" class="image"><a href="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled%201.png"><img style="width:240px" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled%201.png"/></a></figure></div></div><p id="f9f138cd-02d5-436b-be88-9661e6f0bc64" class="">Step 7 : In the Dialog Box that appears, click &quot;NEW&quot; in the &quot;User Variables for ...&quot; and write the name &quot;JAVA_HOME&quot; as the Variable Name and mention the path of the Variable as the Folder of <em>bin</em> inside the <em>jdk-16.0.2</em> folder present in Program Files.</p><div id="96b467f1-7e03-43f2-a93c-9f0345b00d1d" class="column-list"><div id="aa689f64-440a-4faa-a995-8c1aa7ab616b" style="width:37.5%" class="column"><figure id="4363b394-e189-4e48-9467-d1bf037841da" class="image"><a href="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled%202.png"><img style="width:288px" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled%202.png"/></a></figure></div><div id="fb417732-6ef6-4fcf-ad19-1178cd0ba273" style="width:62.5%" class="column"><figure id="b9bddabe-ea38-4308-acd6-646faab55e8e" class="image"><a href="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled%203.png"><img style="width:480px" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled%203.png"/></a></figure></div></div><p id="38b502a2-81d5-47c9-92ea-b487c677dbd5" class="">Step 8 : Under the <strong>System Variables</strong> section, select <em>Path</em> and click on it. Then press the <strong>Edit</strong> option.</p><figure id="45570913-c298-4538-ae52-5db8946611f4" class="image"><a href="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled%204.png"><img style="width:384px" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled%204.png"/></a></figure><p id="bd9fec45-db04-4407-81d7-2387def0ca70" class="">Step 9 : Press &quot;NEW&quot; in the dialog box that appears and copy and paste the same folder path of jdk-16.0.2/bin there. </p><figure id="636ae963-d5a2-48b9-bcce-bda6537b7d82" class="image"><a href="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled%205.png"><img style="width:336px" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/Untitled%205.png"/></a></figure><p id="92552598-12a6-4376-899c-f6ab5067f979" class="">Step 10 : Done. Finish. Khatam. Bye Bye.</p><p id="6ce93ba4-f82b-406b-82fb-4390c9ea4baa" class="">Hey wait, let&#x27;s check if JDK has been there in your computer or not.</p><h3 id="228a4b16-7fbb-460b-8e59-227d995b42e4" class="">Post Setup of Environmental Variables.</h3><p id="80f5723e-a671-40d7-b68d-851f2b0a5594" class="">Step 11 : Open CMD anywhere on your Computer.</p><p id="6c30e0ac-faa2-41ec-a111-6d2c2676ec85" class="">Step 12 : Write this command.</p><pre id="5afca7fe-b6ab-4f2b-9536-3c84fd4881b6" class="code"><code>javac --version</code></pre><p id="3469ea99-024c-4c2a-a2f6-f0f89adc9050" class="">It should output <em>javac 16.0.2</em>. Then only, your Java 16 is working on your PC.</p><p id="b4357f58-4664-410b-aa1e-e675cb181ac5" class="">Step 13 : Write this command too.</p><pre id="5e93a85d-bf2f-46af-87d4-49a79a872046" class="code"><code>java -version</code></pre><p id="468175f2-f6e5-4a5a-b163-1d78b0180b97" class="">This should give you the answer as : -</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="fdecbe8e-8699-4ce5-939b-ca653f2c8860"><div style="font-size:1.5em"><span class="icon">🛠</span></div><div style="width:100%">java version &quot;16.0.2&quot; 2021-07-20
+Java(TM) SE Runtime Environment (build 16.0.2+7-67)
+Java HotSpot(TM) 64-Bit Server VM (build 16.0.2+7-67, mixed mode, sharing)</div></figure><p id="ceb22fe0-d7d3-48d7-87d6-82386714d11c" class="">
+</p><p id="3b0b8280-31cc-432c-9038-5050ce0be9f4" class="">Yay 🎉🎉🎉 ...Finally you did it.</p><p id="65e69263-0102-476f-a5d2-069a1ed3e3ac" class="">
+</p><figure id="9811a512-14a8-40bf-a113-af28dfac4e9d" class="image"><a href="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/giphy.gif"><img style="width:336px" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/giphy.gif"/></a></figure><p id="66f2a34e-9f14-4351-8f4c-3762c2a3a226" class="">
+</p><hr id="61573350-bb8d-4105-abf8-ed7df94dcba4"/><p id="78e8f6d0-86a9-4993-9186-898f7ed0c02f" class="">After finishing up setting the IDE, let&#x27;s write our very first program in Java.</p><p id="081417a4-efdf-4eb8-8ac0-4539c19254f8" class="">But prior to that, we must know 2 things.</p><h3 id="ad63352b-fd61-496e-9a04-1b6ab011cdd2" class="">Comments</h3><p id="c27d0b97-3465-4639-afdd-800fb7b81aa0" class="">A good programmer&#x27;s practice is to always describe and give details about his/her program. Imagine if you went to github to contribute and the <a href="http://README.md">README.md</a> file was empty, how would you have contributed then, when you don&#x27;t even know what the repository. Similarly, it is important for us to specify the purpose and use cases of our program. These information is not required by the Java Virtual Machine. Comments are simply ignored by the Compilation Unit of Java. </p><p id="a8b99f0a-f151-46b6-a915-064ca754918a" class="">
+</p><p id="cb7ee5dc-a21f-40f1-bcc8-96210addbc8f" class="">Comments are just for human understanding, they are not required by the Java Compiler and Java Virtual Machine.</p><p id="e6b2f045-adbe-4de9-9784-d5fb3fe98e05" class="">JVM be like : - (Le Programmer)</p><figure id="aa815738-9e99-4a01-9e15-424b42ca80bc" class="image"><a href="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/giphy%201.gif"><img style="width:336px" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/giphy%201.gif"/></a></figure><p id="eda7f983-1af8-4714-a4a4-218093cbbd19" class="">Programmers be like : -</p><p id="37af4cf2-8593-46f8-9f2b-93b8c6ba56ea" class="">
+</p><figure id="6b09f951-671b-40d8-8693-b3168c49fe6a" class="image"><a href="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/giphy%202.gif"><img style="width:336px" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/giphy%202.gif"/></a></figure><p id="d86b5cda-37da-4ae5-9a2c-73ec15c90f7c" class="">
+</p><p id="1b7fedac-bfd3-4c3c-9f7e-ad3662b4185c" class="">This is done by 3 ways: - </p><p id="9ed84410-6e1a-4fcd-bc9f-1f03617b0c42" class="">(i) Single Line Comments , (ii) Multi Line Comments and (iii) Documentation Comments.</p><ol type="1" id="0743f06f-d5aa-46e0-80d8-cfcb9352758a" class="numbered-list" start="1"><li>Single Line Comments : Let&#x27;s say that a single line is enough to briefly describe the purpose of your program. Then, its better to use Single Line Comments. It basically elaborates a single code statement in your program.</li></ol><pre id="38cbe6aa-99cd-4c29-85ed-c424a7f8407f" class="code"><code>// This is a Single Line Comment.</code></pre><p id="3a831a8f-5189-426b-bf4a-277eb96ffccf" class="">Single Line comments are denoted by the beginning of <strong>2 forward slashes(//).</strong></p><p id="a0f5e294-b9d3-49a2-87da-a9d09b2e1bea" class="">
+</p><ol type="1" id="6f14bf0a-6f7f-46e0-9be6-6f953c476d39" class="numbered-list" start="2"><li>Multi Line Comments : Sometimes, a single line is not enough to describe the purpose of the program you write. Let&#x27;s say that you want to have the Problem Statement as the comment in your program. You cannot just keep on indenting the code and assigning a single line. Hence, if you require to elaborate your program, we use Multi Line Comments. </li></ol><pre id="62122258-bae8-4c70-98f3-aa7d1ec2d971" class="code"><code>/* Hi All,
+	this is a multiline comment 
+	this feels good if you have a lot of information to give to your client about your code
+*/</code></pre><p id="4f70e880-7b0d-40a9-af2e-da8822ab5c15" class="">Multi Line Comments are denoted by &quot;/*&quot; in the beginning, and it ends with &quot;*/&quot;.</p><ol type="1" id="eface65d-49f7-469d-9030-a0a99d667ce5" class="numbered-list" start="3"><li>Documentation Comments : These comments are written so that they are visible when we generate the documentation of our Program. This might sound weird. You might think that why a program needs to have Documentation even. Its simple. Just like oracle has all the documentation for its whole API, its important to write documentation if you are working on a large scale project in a company so that whenever a newbie joins, he/she can relate the project company is working on and can contribute to it.</li></ol><pre id="32231428-b75e-4872-ab83-c111bf31262e" class="code"><code>/* * Begins Documentation
+	* First Line : Author Name
+	* Second Line : Version Info
+	* Third ... nth Line : Documentation Begins
+*/</code></pre><p id="ec2d6320-1bf8-4314-93df-a86daf5f0579" class="">A documentation comment begins with &quot;/*&quot; and ends with &quot;*/&quot;. Each line you write, begins with an asterisk mark (*).</p><p id="816c69ef-f2ed-4b10-8663-3f0684c7c541" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="66236d5b-7668-4ce8-827d-b0f32a9281cb"><div style="font-size:1.5em"><span class="icon">🛠</span></div><div style="width:100%">Interview Question
+What is an API Document?</div></figure><p id="e09c8830-acf9-4315-8283-07429188cc59" class="">
+</p><p id="cad2bf43-170c-44a5-a411-8bb27e405080" class="">Now, we are good to write our very first program in Java. Let&#x27;s do it.</p><pre id="abd1efad-670c-4d97-a00c-d721efad73aa" class="code"><code>// This is a Hello World Program.
+public class HelloWorld {
+		public static void main(String[] args) {
+				System.out.println(&quot;Hello World! This is me&quot;);
+		}
+}</code></pre><p id="b5044f19-9a2e-4878-8723-c0aeafecfed9" class="">Whoa! that&#x27;s damn simple program. Now its time to run our program so that we can see the output. </p><p id="46180af1-e325-49ab-889d-77b0873f6a5b" class="">There are basically 3 steps of a program : -</p><ol type="1" id="2b02ba28-ea1e-4d88-8db4-18d5aba1172d" class="numbered-list" start="1"><li>Write Good Comments and a sweet programs.</li></ol><ol type="1" id="d609a08c-99dd-4efd-b3ad-b3e108f6d9ad" class="numbered-list" start="2"><li>Compile and Debug them successfully.</li></ol><ol type="1" id="584aa3d3-df67-49b2-a9e9-18a417256922" class="numbered-list" start="3"><li>And Run the Program to get the output.</li></ol><p id="461c1dee-4212-4d48-813d-8ff4df84050b" class=""><mark class="highlight-red">📝Write —&gt; 🐛Debug —&gt; ▶Run</mark></p><p id="07c3507e-6f86-45b8-9708-f2d7ffb36ad8" class="">
+</p><p id="870bedac-766b-4898-9709-e8ec2460655c" class="">Our Program seems absolutely cute and pretty🥰. Now, Let&#x27;s compile our program.</p><p id="e461acab-5dd3-4e9c-9cd9-60bdb3e23ea2" class="">So as to compile a Java program, we first open the Command Prompt in that File Location, where we had saved our Program.</p><p id="0867cba4-e059-40af-ba2f-f1e2219b1141" class="">Once it opens, write this command: -</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="5e54f666-b1ed-40e2-b0b9-f20695688b0b"><div style="font-size:1.5em"><span class="icon">🛠</span></div><div style="width:100%">javac HelloWorld.java</div></figure><p id="01c3dce4-dc3e-43c4-a6c8-e2764a6eb5d2" class=""><strong>javac</strong> is a combination of 2 things : <strong>java</strong> and <strong>c</strong>. Java means Java and <strong>c</strong> means Compiler.</p><p id="fa4608a5-38f9-44e6-99e1-d7f6091aaf88" class="">When combined together, this means Java Compiler. As mentioned earlier, Java programs are first compiled into bytecode and then, they are run by Java Virtual Machine.</p><p id="def0eef8-53a1-434c-8613-8dea10c02d2d" class="">
+</p><p id="363e3400-8423-4287-9050-b767e442211d" class="">Step 1 : Compile your program to check for any Syntax Violations by using the <strong>javac</strong> command. </p><p id="48c9f641-8bad-4179-9ac2-12f01fa0a9e5" class="">Step 2 : Pass the Compiled Program to the Java Virtual Machine so as to run it successfully by using the command : -</p><p id="d80b17c2-8f66-44de-a296-e46bb4ceab76" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2f47a2c0-4c1b-4419-842d-10657abb2883"><div style="font-size:1.5em"><span class="icon">🛠</span></div><div style="width:100%">java HelloWorld</div></figure><p id="30760216-f226-4bbb-90a2-c48f99b87117" class="">The file &quot;HelloWorld&quot; has an extension of &quot;.class&quot; . This <em>class</em> file is nothing but the platform independent bytecode. This <em>.class</em> file is the reason for Java&#x27;s Platform Independent Nature. </p><p id="3fea7c93-b96c-452a-9341-1d591dc2d3a2" class="">Now, what&#x27;s the output?</p><pre id="40d4efcf-5e09-4388-ae48-7baf0aafae20" class="code"><code>Hello World! This is me</code></pre><p id="5629715b-231e-44c0-b74d-ea97d0673618" class="">
+</p><p id="1eed175b-a813-4b43-800e-159841c56787" class="">Now, let&#x27;s derivate our program line by line. </p><pre id="5915e0f8-0b63-4e16-9b39-661f26af28d6" class="code"><code>public class HelloWorld {
+
+}</code></pre><p id="6c57bdbc-a750-427e-9418-e086e84407bb" class="">A <strong>class</strong> represents a binding unit. Everything in a Basic Java Program should be written within a <mark class="highlight-red">class</mark>. A class serves as a single unit through which we can access all the members inside it. </p><p id="430d0f0a-1859-4670-9dcc-b054b8206cc6" class="">Best example of class serving as a single unit of accessibility can be seen during the compilation of the program. </p><p id="9c78c32e-8848-4215-b23f-abba850ce770" class="">Since Java is Object-oriented, everything is done within a class. It is required to have at least one class. Writing a class is pretty simple. Here is the syntax : -</p><pre id="cc31e1be-66ec-4d4c-b88e-c268a201752f" class="code"><code>class Class_Name {
+		//Statements goes here.
+}</code></pre><p id="80f71fc4-6622-41c7-9359-ed38d4885f35" class="">We use the <mark class="highlight-red">class </mark>keyword to define a class. &quot;Class_Name&quot; denotes the name of the class. As in the first program, the name of the class is <em>HelloWorld</em>. </p><p id="cfb93668-4a22-43ce-a2f1-ac24b46ab337" class="">But wait, what are { } ? Well, these things are called Blocks. </p><p id="a78518f5-3fb2-4063-b0c7-fe8a11452b9c" class="">
+</p><p id="b02477a8-0412-4565-b7a2-bbe9f1997dcf" class="">Blocks defines a scope of accessibility in Java within which other members can access each other. </p><p id="37c85b5c-b406-4d2d-b76f-3e392191fde5" class="">
+We use this block so that all the members of the class can access each other. Since, Java is object oriented and everything must be in the scope of a class, hence we use {} to denote the scope of the class. </p><p id="684edc30-ea58-46c3-9f39-2d4bd4cd0eb7" class="">Wait a second... You might be thinking why are we using <strong>public</strong> in front of the class. JVM is also a program that is written by people who made Java. So as to ensure that Java Virtual Machine can access your program from anywhere, we use the <strong>public</strong> keyword. For now, the use of <em>public</em> keyword is enough. When we advance to higher concepts, we would understand its broader aspect.</p><p id="33549989-dc68-415e-9894-c54460a28f6b" class="">
+</p><p id="8b153b95-43b8-4a98-aafc-8077fa5616fd" class="">Then comes a method...The mighty <em>main()</em> method. </p><pre id="98303397-d9a7-4649-82be-db2dddfd4fd9" class="code"><code>public static void main(String[] args) {
+		// Method code goes here.
+}</code></pre><p id="794a591b-0503-47e3-bac4-775a92062b58" class="">main( ) method acts as an Entry to your Program. This is the method which JVM searches for when you run your Java Program. Just like your house has only one main door of entry, A Java Program also has only 1 place of Entry. This place is <em>main()</em> method.</p><p id="7d82d356-496f-44c3-ac2d-28314c582d10" class="">This method has <strong>public</strong> access. This basically means that it can be accessed anywhere throughout the class and is also accessible outside the file from the object of the class. </p><p id="a4b44813-2648-41a6-9099-1986b4425a82" class="">So as to print something on the Screen in your computer, we use a <em>println()</em> method which is present inside the <strong>PrintStream</strong> class. You can remember the print syntax in somewhat the way given below: -</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="fff53406-e0f6-416a-897a-e66b18753ddd"><div style="font-size:1.5em"><span class="icon">🛠</span></div><div style="width:100%"><em>System.out</em> —&gt; Access your system and choose to output something.
+<em>println( )</em> —&gt; It does a task of Printing something to your output window.</div></figure><p id="3adaf62f-dec3-411b-85ec-69f19b0984aa" class="">The word &quot;println&quot; is made of two parts : -</p><ol type="1" id="669580b2-d424-4da2-9e55-2a8ac3d7c102" class="numbered-list" start="1"><li>print —&gt; Print something</li></ol><ol type="1" id="a45d0752-977c-4f77-b5d3-b5ac1cf6e3c7" class="numbered-list" start="2"><li>ln —&gt; Line Break.</li></ol><p id="21d129dc-fb49-483f-b971-b314d7b5c90f" class="">In combination, it forms <em>println</em> which means that <strong>it would print something to the output window and would change the line of cursor and set it to the next line</strong>.</p><p id="cf995882-c792-4d12-8cab-26cdcc52350d" class="">But wait, what&#x27;s this strange <em>static</em> stuff???</p><figure id="d828abdc-1aca-4cb4-a8e7-e480ce7b6673" class="image"><a href="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/nick-young-question-marks.gif"><img style="width:300px" src="Introduction%20to%20Java%2056fbe2ebce534008831862cc0033d5e5/nick-young-question-marks.gif"/></a><figcaption>Confusing hai kitna yaar....Alternative bata.</figcaption></figure><p id="56880243-76a7-4a00-a109-2cfd8c88bcba" class="">
+</p><p id="134d0701-6907-4f89-b1a4-9c9593f6d7f0" class="">Its easy to understand. <strong>static</strong> keyword is used in a Java Program to denote that a particular member is accessible through its class name itself in other files. Let&#x27;s say that you have another class where you want to call <strong>HelloWorld&#x27;s</strong> <em>main method</em>. Let&#x27;s code it at once.</p><p id="6c0834f4-5460-47b1-b9f9-f4ac615b5a85" class="">So you must have rightly thought, we are going to have another empty java file and would write the code.</p><pre id="6b9c2c1b-eb3e-48b2-be68-83dbef65940a" class="code"><code>// Program to show accessibility of main() method in another files.
+public class File2 {
+	public static void main(String[] args) {
+			HelloWorld.main(args);  // This simply denotes that we can access main() method from its class name only iff its static method.
+	}
+}</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ed76719d-1d89-4d69-873c-a94226f92982"><div style="font-size:1.5em"><span class="icon">🛠</span></div><div style="width:100%">HelloWorld.main(args)</div></figure><p id="48c36794-980e-403b-ac7f-69d8616ad752" class="">This states the Java Virtual Machine that <strong>Krish has a class </strong><strong><em>HelloWorld</em></strong><strong> where there is a </strong><strong><em>main( )</em></strong><strong> method which accepts a </strong><strong><em>String type array</em></strong><strong> as its argument.</strong></p><p id="a4667bae-96e0-4304-bc85-bb4c49dea1e3" class="">Simply, we pass <em>args</em> as the parameter of <em>HelloWorld&#x27;s main() method</em> because <em>args</em> itself is a String type Array in <em>File2</em> class. This is one of the reason why we use <strong>static</strong> keyword in the method prototype( prototype means the method header which comprises of keywords like public, private, protected, static, void, etc. with the method name and the formal parameter list ) of <em>main() method</em>. </p><p id="5f3e0d81-2010-42b4-abcf-88fa7935f877" class="">When you try compiling the <strong>File2</strong> using the commands <em>javac</em> and <em>java</em>, JVM searches for the main( ) method with public access and defined with the keyword static and void having a String array type parameter.</p><p id="4da5f3f9-c58c-4bf2-ac32-0dc0ed8fa3fd" class="">The formal parameter list is the list of combination of datatypes and variables. main( ) method has a String type array in its formal parameter list. This <em>args</em> is accessible everywhere in the main( ) method. The start of parentheses ( ) just immediately after the method name denotes the formal parameter list. </p><p id="6bfcd55d-904b-4082-bc3e-785db6c2c50b" class="">
+</p><p id="390d4ed5-b4fb-4124-b4e1-2d8cdc351da7" class="">Now, the use of <em>void</em> is what? It specifies that a method does not return anything. Basically, a method is a separate piece of code which may or may not accept any argument and may or may not return a value, but it performs a specific task. In the above code example, main( ) method has a String type array as its parameter but does not return anything. We know that main() method should not return anything but who would inform this info to JVM. Here, <em>void</em> is used as the return type of a method which does not return anything.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7ba98ecf-6f90-4985-b445-dc52218511b3"><div style="font-size:1.5em"><span class="icon">🛠</span></div><div style="width:100%">Why is it necessary to write the same method header or prototype in a Java Program.?
+
+<strong>It is because JVM looks for a main() method with a String type array as its parameter and is defined with atleast </strong><em><strong>public</strong></em><strong> and </strong><em><strong>static</strong></em><strong> keywords having its return type as </strong><em><strong>void</strong></em><strong>.</strong></div></figure><p id="b8da9ca2-4fb1-4e6a-b866-37ce3861210d" class="">
+</p><h3 id="2ab309c8-3fde-486b-a9c8-366dbb7da0af" class="">More Information about Basic Knowledge in Introduction to Java.</h3><p id="95e2f328-eae9-42f2-bbcb-18b43ff6bc93" class="">Now that we have decomposed our First Program, let&#x27;s get deeper into concepts. The very first thing we are going to understand is some basic knowledge of variables, datatypes and stuff.</p><p id="ed9d2988-a713-4972-8380-c9041de2f4a6" class=""><strong>Now, let&#x27;s say that I have a Girlfriend(unfortunately, this isn&#x27;t true). Now if I ask what is the gender of my Girl-Friend, then surely the answer, no doubt, is Girl🤣</strong>. So, <em>Girl</em> is a type. Similarly, when you want to store some values in Java, you need to specify the type of Data that you are going to store in a variable. This proves the robustness of Java in yet another way. This is the reason why you need to specify the type of Data before storing it. Hence Java is strongly typed language.</p><p id="1fe07fac-6596-4397-8ef8-01628c6293a9" class="">But now, what is a Variable? </p><p id="e652e996-c598-480f-b10c-f4b1953d736a" class="">Well, variables are just like containers which store a value, which when we want, can be changed when the program runs.</p><p id="bb15d1ac-6511-4f15-a974-8c4e31317235" class="">Let&#x27;s see now, how we can store some value in a variable and print it.</p><pre id="3c58e008-db82-41c8-943e-a4e1c36a0ec4" class="code"><code>int firstVariable = 10;  
+System.out.println(firstVariable);</code></pre><p id="42d6e7cd-9d6f-4c58-9413-6b0ba3000a41" class="">As you might have rightly pointed out, <mark class="highlight-orange"><em>int</em></mark><mark class="highlight-orange"> </mark>is a datatype. Datatypes are the types of Data a Variable can store. So, what&#x27;s the container which would store the value <strong>10</strong>. Its the <em>firstVariable</em>. </p><p id="ae4677ca-17cf-4ac9-b741-1303abdab1a2" class="">Datatype : int</p><p id="b5cc92be-c78d-47ed-a1aa-683954c28d11" class="">Variable Name : firstVariable</p><p id="44b6cb0d-bdca-4d53-a472-6709e134accf" class="">Value stored in the variable : 10</p><p id="e77efac0-29b9-432c-a554-73c3cc38103c" class="">But how to remember <em>int</em> and other datatypes?? It comes by practice. Howsoever, there are only 8 primitive types only, and these 8 types are enough to represent any basic level type. </p><p id="17696fce-e853-4f6e-9719-1659783350b2" class="">Basically, <mark class="highlight-red"><em>int</em></mark><mark class="highlight-red"> </mark>means that a value that you are going to store in the variable <em>firstVariable</em> can range between 2 * 10^-31 to 2 * 10^31 - 1. <em>int</em> is an abbreviation of <em>Integer</em>.</p><p id="de90c4b2-6402-45e6-ac07-f1e8fe080b59" class="">Syntax of using a variable: - </p><pre id="35a5c0a2-c5eb-44f4-98c8-8ee328e31c66" class="code"><code>datatype variableName = value ; </code></pre><p id="f39f3890-bf4d-458c-927a-28702c72a921" class="">A semicolon(;) is necessary after all executable statements. If applied after a executable statement, it means that the statement would terminate and the Compiler would then check for the next line.</p><p id="32c01762-6be5-4811-be87-6ebec575b7f5" class="">
+</p><h3 id="7d340a53-9bc7-4fd8-a641-daf84502f34a" class="">Let&#x27;s Begin The Menti: -</h3></div></article></body></html>
